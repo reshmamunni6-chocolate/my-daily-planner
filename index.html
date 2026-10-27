@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="My Daily Planner - a simple student task planner.">
+  <title>My Daily Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="logo" aria-hidden="true">✓</div>
+      <div>
+        <p class="eyebrow">PLAN YOUR DAY</p>
+        <h1>My Daily Planner</h1>
+        <p class="subtitle">Small steps make a productive day.</p>
+      </div>
+    </header>
+
+    <section class="summary" aria-label="Task summary">
+      <div class="summary-card">
+        <span class="summary-label">Total tasks</span>
+        <strong id="totalCount">0</strong>
+      </div>
+      <div class="summary-card">
+        <span class="summary-label">Completed</span>
+        <strong id="completedCount">0</strong>
+      </div>
+      <div class="summary-card">
+        <span class="summary-label">Remaining</span>
+        <strong id="remainingCount">0</strong>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 id="formHeading">Add a task</h2>
+      <form id="taskForm">
+        <label for="taskInput">Task name</label>
+        <input id="taskInput" name="task" type="text" maxlength="120"
+               placeholder="e.g. Finish science homework" required>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="taskDate">Due date</label>
+            <input id="taskDate" name="date" type="date">
+          </div>
+          <div class="field">
+            <label for="taskPriority">Priority</label>
+            <select id="taskPriority" name="priority">
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="primary-btn" id="submitBtn" type="submit">＋ Add task</button>
+          <button class="secondary-btn hidden" id="cancelEditBtn" type="button">Cancel edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="tasks-section">
+      <div class="tasks-heading">
+        <h2>Your tasks</h2>
+        <label class="filter-wrap" for="taskFilter">
+          <span class="sr-only">Filter tasks</span>
+          <select id="taskFilter">
+            <option value="all">All tasks</option>
+            <option value="active">Remaining</option>
+            <option value="completed">Completed</option>
+          </select>
+        </label>
+      </div>
+      <p id="emptyMessage" class="empty-message">No tasks yet. Add your first task above!</p>
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+      <div class="list-footer">
+        <span id="taskStatus">Stay organized, one task at a time.</span>
+        <button id="clearCompletedBtn" class="text-btn" type="button">Clear completed</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>My Daily Planner · Built with HTML, CSS &amp; JavaScript</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
